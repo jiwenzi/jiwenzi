@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>HostName on Jiwenzi</title>
+    <link>https://www.jiwenzi.com/tags/hostname/</link>
+    <description>Recent content in HostName on Jiwenzi</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 13 Jan 2019 19:47:29 +0800</lastBuildDate>
+    <atom:link href="https://www.jiwenzi.com/tags/hostname/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Change Linux Hostname</title>
+      <link>https://www.jiwenzi.com/2019/01/13/change-linux-hostname/</link>
+      <pubDate>Sun, 13 Jan 2019 19:47:29 +0800</pubDate>
+      <guid>https://www.jiwenzi.com/2019/01/13/change-linux-hostname/</guid>
+      <description>Change Linux Hostname&amp;hellip;</description>
+    </item>
+  </channel>
+</rss>

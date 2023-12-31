@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Vim on Jiwenzi</title>
+    <link>https://www.jiwenzi.com/tags/vim/</link>
+    <description>Recent content in Vim on Jiwenzi</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 16 Jan 2019 22:19:27 +0800</lastBuildDate>
+    <atom:link href="https://www.jiwenzi.com/tags/vim/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Vim config</title>
+      <link>https://www.jiwenzi.com/2019/01/16/vim-config/</link>
+      <pubDate>Wed, 16 Jan 2019 22:19:27 +0800</pubDate>
+      <guid>https://www.jiwenzi.com/2019/01/16/vim-config/</guid>
+      <description>Vim config&amp;hellip;</description>
+    </item>
+  </channel>
+</rss>

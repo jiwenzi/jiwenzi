@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Web on Jiwenzi</title>
+    <link>https://www.jiwenzi.com/tags/web/</link>
+    <description>Recent content in Web on Jiwenzi</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 12 Jan 2019 17:26:38 +0800</lastBuildDate>
+    <atom:link href="https://www.jiwenzi.com/tags/web/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Install nginx on ubuntu</title>
+      <link>https://www.jiwenzi.com/2019/01/12/install-nginx-on-ubuntu/</link>
+      <pubDate>Sat, 12 Jan 2019 17:26:38 +0800</pubDate>
+      <guid>https://www.jiwenzi.com/2019/01/12/install-nginx-on-ubuntu/</guid>
+      <description>Install nginx on ubuntu&amp;hellip;</description>
+    </item>
+    <item>
+      <title>总有很多意想不到的事情发生</title>
+      <link>https://www.jiwenzi.com/2016/08/09/a-breakdown-of-the-site/</link>
+      <pubDate>Tue, 09 Aug 2016 20:21:17 +0800</pubDate>
+      <guid>https://www.jiwenzi.com/2016/08/09/a-breakdown-of-the-site/</guid>
+      <description>下班路上刷新了一下网页，发现竟然打不开了，不过因为不是空白页，所以判断是数据库挂了。首先想这个地方也不会有多少人来访问啊，难不成这么快就被黑了&amp;hellip;</description>
+    </item>
+    <item>
+      <title>终于等到你，还好我没放弃</title>
+      <link>https://www.jiwenzi.com/2016/08/06/renewal-of-the-site/</link>
+      <pubDate>Sat, 06 Aug 2016 13:14:15 +0800</pubDate>
+      <guid>https://www.jiwenzi.com/2016/08/06/renewal-of-the-site/</guid>
+      <description>告别拖延症第一步，把宕机多年的网站重新部署了一下&amp;hellip;</description>
+    </item>
+  </channel>
+</rss>

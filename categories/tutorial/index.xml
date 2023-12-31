@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tutorial on Jiwenzi</title>
+    <link>https://www.jiwenzi.com/categories/tutorial/</link>
+    <description>Recent content in Tutorial on Jiwenzi</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 17 Mar 2022 22:23:36 +0800</lastBuildDate>
+    <atom:link href="https://www.jiwenzi.com/categories/tutorial/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Init desktop system</title>
+      <link>https://www.jiwenzi.com/2022/03/17/init-desktop-system/</link>
+      <pubDate>Thu, 17 Mar 2022 22:23:36 +0800</pubDate>
+      <guid>https://www.jiwenzi.com/2022/03/17/init-desktop-system/</guid>
+      <description>Init desktop system: Windows, macOS, Linux&amp;hellip;</description>
+    </item>
+    <item>
+      <title>Introduction to RPC</title>
+      <link>https://www.jiwenzi.com/2020/04/06/introduction-to-rpc/</link>
+      <pubDate>Mon, 06 Apr 2020 22:57:30 +0800</pubDate>
+      <guid>https://www.jiwenzi.com/2020/04/06/introduction-to-rpc/</guid>
+      <description>RPC，全称为Remote Procedure Call，即远程过程调用，是一种计算机程序的通信协议，常见于分布式计算、后端服务集群部署等场景&amp;hellip;</description>
+    </item>
+    <item>
+      <title>install zsh and oh-my-zsh</title>
+      <link>https://www.jiwenzi.com/2019/03/27/install-zsh-and-oh-my-zsh/</link>
+      <pubDate>Wed, 27 Mar 2019 20:40:30 +0800</pubDate>
+      <guid>https://www.jiwenzi.com/2019/03/27/install-zsh-and-oh-my-zsh/</guid>
+      <description>Install zsh and oh-my-zsh&amp;hellip;</description>
+    </item>
+    <item>
+      <title>Vim config</title>
+      <link>https://www.jiwenzi.com/2019/01/16/vim-config/</link>
+      <pubDate>Wed, 16 Jan 2019 22:19:27 +0800</pubDate>
+      <guid>https://www.jiwenzi.com/2019/01/16/vim-config/</guid>
+      <description>Vim config&amp;hellip;</description>
+    </item>
+    <item>
+      <title>Start HTTPS with Let&#39;s Encrypt</title>
+      <link>https://www.jiwenzi.com/2019/01/16/start-https-with-lets-encrypt/</link>
+      <pubDate>Wed, 16 Jan 2019 21:26:59 +0800</pubDate>
+      <guid>https://www.jiwenzi.com/2019/01/16/start-https-with-lets-encrypt/</guid>
+      <description>Start HTTPS with Let&amp;rsquo;s Encrypt&amp;hellip;</description>
+    </item>
+    <item>
+      <title>Add swap space for Linux</title>
+      <link>https://www.jiwenzi.com/2019/01/13/add-swap-space-for-linux/</link>
+      <pubDate>Sun, 13 Jan 2019 21:04:51 +0800</pubDate>
+      <guid>https://www.jiwenzi.com/2019/01/13/add-swap-space-for-linux/</guid>
+      <description>Add swap space for Linux&amp;hellip;</description>
+    </item>
+    <item>
+      <title>Change Linux Hostname</title>
+      <link>https://www.jiwenzi.com/2019/01/13/change-linux-hostname/</link>
+      <pubDate>Sun, 13 Jan 2019 19:47:29 +0800</pubDate>
+      <guid>https://www.jiwenzi.com/2019/01/13/change-linux-hostname/</guid>
+      <description>Change Linux Hostname&amp;hellip;</description>
+    </item>
+    <item>
+      <title>SSH config for Git</title>
+      <link>https://www.jiwenzi.com/2019/01/13/ssh-config-for-git/</link>
+      <pubDate>Sun, 13 Jan 2019 15:28:04 +0800</pubDate>
+      <guid>https://www.jiwenzi.com/2019/01/13/ssh-config-for-git/</guid>
+      <description>SSH config for Git&amp;hellip;</description>
+    </item>
+    <item>
+      <title>SSH config for security</title>
+      <link>https://www.jiwenzi.com/2019/01/12/ssh-config-for-security/</link>
+      <pubDate>Sat, 12 Jan 2019 23:13:04 +0800</pubDate>
+      <guid>https://www.jiwenzi.com/2019/01/12/ssh-config-for-security/</guid>
+      <description>SSH config for security&amp;hellip;</description>
+    </item>
+    <item>
+      <title>Install nginx on ubuntu</title>
+      <link>https://www.jiwenzi.com/2019/01/12/install-nginx-on-ubuntu/</link>
+      <pubDate>Sat, 12 Jan 2019 17:26:38 +0800</pubDate>
+      <guid>https://www.jiwenzi.com/2019/01/12/install-nginx-on-ubuntu/</guid>
+      <description>Install nginx on ubuntu&amp;hellip;</description>
+    </item>
+    <item>
+      <title>博客终于上线了</title>
+      <link>https://www.jiwenzi.com/2014/10/03/hello-world/</link>
+      <pubDate>Fri, 03 Oct 2014 13:23:21 +0800</pubDate>
+      <guid>https://www.jiwenzi.com/2014/10/03/hello-world/</guid>
+      <description>终于等到你&amp;hellip;</description>
+    </item>
+  </channel>
+</rss>

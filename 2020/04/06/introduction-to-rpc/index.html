@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Introduction to RPC - Jiwenzi</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Linfeng" /><meta name="description" content="RPC，全称为Remote Procedure Call，即远程过程调用，是一种计算机程序的通信协议，常见于分布式计算、后端服务集群部署等场景" /><meta name="keywords" content="jiwenzi.com" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.121.1 with theme even" />
+
+
+<link rel="canonical" href="https://www.jiwenzi.com/2020/04/06/introduction-to-rpc/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Introduction to RPC" />
+<meta property="og:description" content="RPC，全称为Remote Procedure Call，即远程过程调用，是一种计算机程序的通信协议，常见于分布式计算、后端服务集群部署等场景" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.jiwenzi.com/2020/04/06/introduction-to-rpc/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2020-04-06T22:57:30+08:00" />
+<meta property="article:modified_time" content="2023-08-31T02:36:16+08:00" />
+
+<meta itemprop="name" content="Introduction to RPC">
+<meta itemprop="description" content="RPC，全称为Remote Procedure Call，即远程过程调用，是一种计算机程序的通信协议，常见于分布式计算、后端服务集群部署等场景"><meta itemprop="datePublished" content="2020-04-06T22:57:30+08:00" />
+<meta itemprop="dateModified" content="2023-08-31T02:36:16+08:00" />
+<meta itemprop="wordCount" content="2715">
+<meta itemprop="keywords" content="RPC,gRPC,GoLang,Protocol Buffers," /><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Introduction to RPC"/>
+<meta name="twitter:description" content="RPC，全称为Remote Procedure Call，即远程过程调用，是一种计算机程序的通信协议，常见于分布式计算、后端服务集群部署等场景"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Jiwenzi</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Jiwenzi</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Introduction to RPC</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2020-04-06 </span>
+        <div class="post-category">
+            <a href="/categories/tech/"> Tech </a>
+            <a href="/categories/tutorial/"> Tutorial </a>
+            </div>
+          <span class="more-meta"> 2715 words </span>
+          <span class="more-meta"> 6 mins read </span>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#什么是rpc">什么是RPC？</a></li>
+        <li><a href="#为什么要使用rpc">为什么要使用RPC？</a></li>
+        <li><a href="#什么时候应该使用rpc">什么时候应该使用RPC？</a></li>
+        <li><a href="#使用哪种rpc协议">使用哪种RPC协议？</a></li>
+        <li><a href="#grpc的使用简介">gRPC的使用简介</a>
+          <ul>
+            <li><a href="#安装对应的环境依赖">安装对应的环境依赖</a></li>
+            <li><a href="#编写第一个grpc应用">编写第一个gRPC应用</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>Reference document:</p>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Remote_procedure_call">RPC</a></li>
+<li><a href="https://grpc.io/docs">gRPC</a></li>
+<li><a href="https://thrift.apache.org">Thrift</a></li>
+<li><a href="https://github.com/apache/incubator-brpc">bRPC</a></li>
+<li><a href="https://dubbo.apache.org">Dubbo</a></li>
+<li><a href="https://protobuf.dev">Protocol Buffers</a></li>
+</ul>
+<h2 id="什么是rpc">什么是RPC？</h2>
+<p>RPC，全称为Remote Procedure Call，即远程过程调用，是一种计算机程序的通信协议，常见于分布式计算、后端服务集群部署等场景。遵循C/S模式，经典实现是一个通过发送请求&lt;-&gt;接受回应进行信息交互的系统。随着微服务架构在业界的大规模应用，RPC逐渐被大众所熟知（有关RPC的想法至少可以追溯到1976年）。</p>
+<p>常见的RPC协议：</p>
+<ul>
+<li>gRPC，由Google推出，基于HTTP2协议开发，默认采用Protocol Buffers数据序列化协议，支持C#、C++、Dart、GoLang、Java、Kotlin、Node、Objective-C、PHP、Python、Ruby等一系列语言。</li>
+<li>Thrift，由Facebook推出，后捐献给Apache基金会，支持C#、C++、Delphi、ErLang、Haxe、GoLang、Java、Lua、Node、Perl、PHP、Python、Ruby等一些列语言。</li>
+<li>bRPC，由Baidu推出，后捐献给Apache基金会，目前仅支持C++。</li>
+<li>Dubbo，由Alibaba推出，后捐献给Apache基金会，目前仅支持Java。严格意义来讲Dubbo不属于RPC协议，而是一款RPC框架。</li>
+<li>自定义协议，部分大的公司会选择自行开发一套协议来使用，随着上述协议的不断优化和完善，自定义协议出现的也越来越少。</li>
+</ul>
+<h2 id="为什么要使用rpc">为什么要使用RPC？</h2>
+<p>随着互联网的普及，大规模的应用越来越多，大企业对于开发效率和软件质量的需求不断的上升，从而衍生出了越来越多的微服务需求。微服务，简而言之就是将一个大的应用拆分为多个独立的小应用。服务的拆分使得多个需求能进行并行开发、测试，减小了各个需求之前的耦合，从而去提升开发效率和软件的质量。</p>
+<p>在RPC之前，我们一般采用HTTP(S)协议进行远端调用，但是由于HTTP(S)为无状态协议，不支持长连接（HTTP1.1版本开始支持长连接），每次通信都要进行连接握手等操作，并且需要携带臃肿的Header参数，导致消耗了很多的时间和带宽。RPC协议一般基于TCP/UDP协议，支持长连接，使用特定的压缩编码格式对数据进行传输，从而极大的提升了通信效率和稳定性。</p>
+<p>随着微服务架构的广泛使用，远端调用的需求也越来越多，针对HTTP（S）传输协议的消耗也越来越不能让从业人员接受，随之而来的就是对RPC的广泛使用了。</p>
+<h2 id="什么时候应该使用rpc">什么时候应该使用RPC？</h2>
+<p>目前浏览器端尚不支持RPC请求，所以RPC暂时只能应用于服务端。</p>
+<p>对于初创公司来说，由于开发人员数量不会过多，不会存在太多并行需求，而是着重于快速迭代，所以一般不会在项目初期就开始使用微服务架构。相比传统web应用架构而言，微服务架构需要大量的基础设置，如注册中心、配置中心、日志链路追踪、服务监控等。</p>
+<p>对于中大型公司，开发人员的数量已经充足，此时的需求一般是复杂并且并行的。对于这种场景，传统web应用架构无论是针对开发还是测试人员来说，都不能很好的进行日常工作，所以此阶段将要开始拆分应用，建立微服务架构的一些基础设施。随着服务数量的增多，服务间调用也越来越频繁，此时便会引入RPC协议，以优化服务间调用的效率和稳定性。</p>
+<p>注：对于中大型公司的初创项目来说，因为已经存在很好的基础设施，且开发人员也熟悉了微服务架构开发的流程，所以一般在项目初期便会考虑使用微服务架构。</p>
+<h2 id="使用哪种rpc协议">使用哪种RPC协议？</h2>
+<p>目前存在多种RPC协议，且大多都支持主流的语言，所以针对协议的选择便会造成一定的困扰。一般来讲主要由以下因素决定：</p>
+<ul>
+<li>开发语言，变动量越少越好，好的语言生态有较多的组件支持</li>
+<li>基础设施，RPC协议并不是孤立存在的，需要大量基础设施支持，保持一致很重要</li>
+<li>接入服务，考虑接入方所使用的协议，不然还要单独提供一套接入转发环境</li>
+<li>协议效率，常见于Thrift和其它几类协议之间的对比，考虑因素占比较低</li>
+</ul>
+<p>基于以上四个因素，考虑语言生态以及不同语言使用者的习惯，所以特定语言选取特定RPC协议的概率较大。如果项目组成员全是Java开发者，则使用Dubbo框架是个不错的选择（使用框架默认支持的协议）；如果项目组成员全是GoLang开发者，则大概率会选用gRPC协议。</p>
+<h2 id="grpc的使用简介">gRPC的使用简介</h2>
+<p>以下内容主要参考<a href="https://grpc.io/docs/quickstart/go">gRPC Quick Start</a>，需使用Go 1.11及以上版本。</p>
+<h3 id="安装对应的环境依赖">安装对应的环境依赖</h3>
+<ol>
+<li>
+<p>安装go语言支持，访问<a href="https://go.dev/dl">GoLang</a>官网下载对应系统安装包安装即可。注意部分系统需手工将<code>go/bin</code>路径添加到环境变量中</p>
+</li>
+<li>
+<p>安装gRPC支持，使用<code>Go Module</code>时非必需</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">$ go get -u -v google.golang.org/grpc
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>安装protoc编译器以生成gRPC服务代码，访问<a href="https://github.com/google/protobuf/releases">Protobuf Releases</a>页面下载对应<code>protoc-&lt;version&gt;-&lt;platform&gt;.zip</code>，解压，将对应路径添加到环境变量中</p>
+</li>
+<li>
+<p>安装protoc的go语言支持插件</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">$ go install -v google.golang.org/protobuf/cmd/protoc-gen-go@latest
+</span></span><span class="line"><span class="cl">$ go install -v google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ol>
+<h3 id="编写第一个grpc应用">编写第一个gRPC应用</h3>
+<ol>
+<li>创建项目
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">$ mkdir grpc-demo
+</span></span><span class="line"><span class="cl">$ go mod init grpc-demo
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>创建protobuf文件<code>grpc-demo/pb/first-grpc.proto</code>，定义gRPC消息传递的必需信息，具体可参考<a href="https://developers.google.com/protocol-buffers">protocol buffers</a>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-protobuf" data-lang="protobuf"><span class="line"><span class="cl"><span class="n">syntax</span> <span class="o">=</span> <span class="s">&#34;proto3&#34;</span><span class="p">;</span>  <span class="c1">// 声明proto版本
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kn">package</span> <span class="nn">first_grpc</span><span class="p">;</span> <span class="c1">// 包名，无需显式声明
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c1">// 定义一个gRPC服务
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">service</span> <span class="n">FirstGRPC</span> <span class="p">{</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>    <span class="c1">// 定义gRPC服务支持调用的方法名、参数、响应信息
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">rpc</span> <span class="n">TestGRPC</span> <span class="p">(</span><span class="n">RequestParam</span><span class="p">)</span> <span class="k">returns</span> <span class="p">(</span><span class="n">ReplyBody</span><span class="p">)</span> <span class="p">{}</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="p">}</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c1">// 定义一个消息的结构，这里为请求数据
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">message</span> <span class="nc">RequestParam</span> <span class="p">{</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>    <span class="kt">string</span> <span class="n">name</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>    <span class="kt">string</span> <span class="n">value</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="p">}</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c1">// 定义一个消息的结构，这里为响应数据
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">message</span> <span class="nc">ReplyBody</span> <span class="p">{</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>    <span class="kt">int32</span> <span class="n">code</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>    <span class="kt">string</span> <span class="kd">message</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="p">}</span><span class="err">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>使用<code>protoc</code>工具生成上述定义的gRPC服务代码
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">$ protoc -I pb/ pb/first-grpc.proto --go_out<span class="o">=</span><span class="nv">plugins</span><span class="o">=</span>grpc:pb
+</span></span></code></pre></td></tr></table>
+</div>
+</div>这里将生成<code>grpc-demo/pb/first-grpc.pb.go</code>文件</li>
+<li>编写server端代码<code>grpc-demo/server/main.go</code>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="s">&#34;context&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="s">&#34;fmt&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="s">&#34;google.golang.org/grpc&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">firstGRPC</span> <span class="s">&#34;grpc-demo/pb&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="s">&#34;net&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">FirstGRPCServer</span> <span class="kd">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">firstGRPC</span><span class="p">.</span><span class="nx">UnimplementedFirstGRPCServer</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">firstGRPCServer</span> <span class="o">*</span><span class="nx">FirstGRPCServer</span><span class="p">)</span> <span class="nf">TestGRPC</span><span class="p">(</span><span class="nx">ctx</span> <span class="nx">context</span><span class="p">.</span><span class="nx">Context</span><span class="p">,</span> <span class="nx">requestParam</span> <span class="o">*</span><span class="nx">firstGRPC</span><span class="p">.</span><span class="nx">RequestParam</span><span class="p">)</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="o">*</span><span class="nx">firstGRPC</span><span class="p">.</span><span class="nx">ReplyBody</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;requestParam:&#34;</span><span class="p">,</span> <span class="nx">requestParam</span><span class="p">.</span><span class="nf">String</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="o">&amp;</span><span class="nx">firstGRPC</span><span class="p">.</span><span class="nx">ReplyBody</span><span class="p">{</span><span class="nx">Code</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">Message</span><span class="p">:</span> <span class="s">&#34;first gRPC call success&#34;</span><span class="p">},</span> <span class="kc">nil</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">listenAddress</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">net</span><span class="p">.</span><span class="nf">Listen</span><span class="p">(</span><span class="s">&#34;tcp&#34;</span><span class="p">,</span> <span class="s">&#34;127.0.0.1:80&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;failed to listen:&#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;listen success&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nx">gRPCServer</span> <span class="o">:=</span> <span class="nx">grpc</span><span class="p">.</span><span class="nf">NewServer</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">firstGRPC</span><span class="p">.</span><span class="nf">RegisterFirstGRPCServer</span><span class="p">(</span><span class="nx">gRPCServer</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">FirstGRPCServer</span><span class="p">{})</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">gRPCServer</span><span class="p">.</span><span class="nf">Serve</span><span class="p">(</span><span class="nx">listenAddress</span><span class="p">);</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;failed to server:&#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>编写client端代码<code>grpc-demo/client/main.go</code>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="s">&#34;context&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="s">&#34;fmt&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="s">&#34;google.golang.org/grpc&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">firstGRPC</span> <span class="s">&#34;grpc-demo/pb&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="s">&#34;os&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="s">&#34;time&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">const</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">serverAddress</span> <span class="p">=</span> <span class="s">&#34;127.0.0.1:80&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">conn</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">grpc</span><span class="p">.</span><span class="nf">Dial</span><span class="p">(</span><span class="nx">serverAddress</span><span class="p">,</span> <span class="nx">grpc</span><span class="p">.</span><span class="nf">WithInsecure</span><span class="p">(),</span> <span class="nx">grpc</span><span class="p">.</span><span class="nf">WithBlock</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;connect serverAddress failed error:&#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">defer</span> <span class="nx">conn</span><span class="p">.</span><span class="nf">Close</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">gRPCClient</span> <span class="o">:=</span> <span class="nx">firstGRPC</span><span class="p">.</span><span class="nf">NewFirstGRPCClient</span><span class="p">(</span><span class="nx">conn</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nx">paramName</span> <span class="o">:=</span> <span class="s">&#34;defaultName&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">paramValue</span> <span class="o">:=</span> <span class="s">&#34;defaultValue&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">Args</span><span class="p">)</span> <span class="p">&gt;</span> <span class="mi">2</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">paramName</span> <span class="p">=</span> <span class="nx">os</span><span class="p">.</span><span class="nx">Args</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">paramValue</span> <span class="p">=</span> <span class="nx">os</span><span class="p">.</span><span class="nx">Args</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">ctx</span><span class="p">,</span> <span class="nx">cancel</span> <span class="o">:=</span> <span class="nx">context</span><span class="p">.</span><span class="nf">WithTimeout</span><span class="p">(</span><span class="nx">context</span><span class="p">.</span><span class="nf">Background</span><span class="p">(),</span> <span class="nx">time</span><span class="p">.</span><span class="nx">Second</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">defer</span> <span class="nf">cancel</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">gRPCResponse</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">gRPCClient</span><span class="p">.</span><span class="nf">TestGRPC</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">firstGRPC</span><span class="p">.</span><span class="nx">RequestParam</span><span class="p">{</span><span class="nx">Name</span><span class="p">:</span> <span class="nx">paramName</span><span class="p">,</span> <span class="nx">Value</span><span class="p">:</span> <span class="nx">paramValue</span><span class="p">})</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;call TestGRPC failed error:&#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;call TestGRPC success res:&#34;</span><span class="p">,</span> <span class="nx">gRPCResponse</span><span class="p">.</span><span class="nf">GetMessage</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>测试
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># 编译server端代码，生成可执行文件</span>
+</span></span><span class="line"><span class="cl">$ go build -o server/server server/main.go
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 编译client端代码，生成可执行文件</span>
+</span></span><span class="line"><span class="cl">$ go build -o client/client client/main.go
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 启用server端代码</span>
+</span></span><span class="line"><span class="cl">$ ./server/server
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 启用client端代码</span>
+</span></span><span class="line"><span class="cl">$ ./client/client
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ol>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Linfeng</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2023-08-31
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/rpc/">RPC</a>
+          <a href="/tags/grpc/">gRPC</a>
+          <a href="/tags/golang/">GoLang</a>
+          <a href="/tags/protocol-buffers/">Protocol Buffers</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/2021/01/01/summary-of-2020/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">过去这几年</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/2020/03/15/summary-of-2019/">
+            <span class="next-text nav-default">时光&amp;记忆</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:feedback@jiwenzi.com" class="iconfont icon-email" title="email"></a>
+  <a href="" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2014 - 
+    2023<span class="heart"><i class="iconfont icon-heart"></i></span><span></span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

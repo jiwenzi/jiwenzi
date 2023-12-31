@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>autojump on Jiwenzi</title>
+    <link>https://www.jiwenzi.com/tags/autojump/</link>
+    <description>Recent content in autojump on Jiwenzi</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 27 Mar 2019 20:40:30 +0800</lastBuildDate>
+    <atom:link href="https://www.jiwenzi.com/tags/autojump/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>install zsh and oh-my-zsh</title>
+      <link>https://www.jiwenzi.com/2019/03/27/install-zsh-and-oh-my-zsh/</link>
+      <pubDate>Wed, 27 Mar 2019 20:40:30 +0800</pubDate>
+      <guid>https://www.jiwenzi.com/2019/03/27/install-zsh-and-oh-my-zsh/</guid>
+      <description>Install zsh and oh-my-zsh&amp;hellip;</description>
+    </item>
+  </channel>
+</rss>

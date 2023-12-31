@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Git on Jiwenzi</title>
+    <link>https://www.jiwenzi.com/tags/git/</link>
+    <description>Recent content in Git on Jiwenzi</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 13 Jan 2019 15:28:04 +0800</lastBuildDate>
+    <atom:link href="https://www.jiwenzi.com/tags/git/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>SSH config for Git</title>
+      <link>https://www.jiwenzi.com/2019/01/13/ssh-config-for-git/</link>
+      <pubDate>Sun, 13 Jan 2019 15:28:04 +0800</pubDate>
+      <guid>https://www.jiwenzi.com/2019/01/13/ssh-config-for-git/</guid>
+      <description>SSH config for Git&amp;hellip;</description>
+    </item>
+  </channel>
+</rss>

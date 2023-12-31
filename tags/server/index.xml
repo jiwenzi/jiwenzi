@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Server on Jiwenzi</title>
+    <link>https://www.jiwenzi.com/tags/server/</link>
+    <description>Recent content in Server on Jiwenzi</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 12 Jan 2019 17:26:38 +0800</lastBuildDate>
+    <atom:link href="https://www.jiwenzi.com/tags/server/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Install nginx on ubuntu</title>
+      <link>https://www.jiwenzi.com/2019/01/12/install-nginx-on-ubuntu/</link>
+      <pubDate>Sat, 12 Jan 2019 17:26:38 +0800</pubDate>
+      <guid>https://www.jiwenzi.com/2019/01/12/install-nginx-on-ubuntu/</guid>
+      <description>Install nginx on ubuntu&amp;hellip;</description>
+    </item>
+  </channel>
+</rss>

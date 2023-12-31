@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>MySQL on Jiwenzi</title>
+    <link>https://www.jiwenzi.com/tags/mysql/</link>
+    <description>Recent content in MySQL on Jiwenzi</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 09 Aug 2016 20:21:17 +0800</lastBuildDate>
+    <atom:link href="https://www.jiwenzi.com/tags/mysql/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>总有很多意想不到的事情发生</title>
+      <link>https://www.jiwenzi.com/2016/08/09/a-breakdown-of-the-site/</link>
+      <pubDate>Tue, 09 Aug 2016 20:21:17 +0800</pubDate>
+      <guid>https://www.jiwenzi.com/2016/08/09/a-breakdown-of-the-site/</guid>
+      <description>下班路上刷新了一下网页，发现竟然打不开了，不过因为不是空白页，所以判断是数据库挂了。首先想这个地方也不会有多少人来访问啊，难不成这么快就被黑了&amp;hellip;</description>
+    </item>
+  </channel>
+</rss>

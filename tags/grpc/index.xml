@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>gRPC on Jiwenzi</title>
+    <link>https://www.jiwenzi.com/tags/grpc/</link>
+    <description>Recent content in gRPC on Jiwenzi</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 06 Apr 2020 22:57:30 +0800</lastBuildDate>
+    <atom:link href="https://www.jiwenzi.com/tags/grpc/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Introduction to RPC</title>
+      <link>https://www.jiwenzi.com/2020/04/06/introduction-to-rpc/</link>
+      <pubDate>Mon, 06 Apr 2020 22:57:30 +0800</pubDate>
+      <guid>https://www.jiwenzi.com/2020/04/06/introduction-to-rpc/</guid>
+      <description>RPC，全称为Remote Procedure Call，即远程过程调用，是一种计算机程序的通信协议，常见于分布式计算、后端服务集群部署等场景&amp;hellip;</description>
+    </item>
+  </channel>
+</rss>

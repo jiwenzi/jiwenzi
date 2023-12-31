@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>总结 on Jiwenzi</title>
+    <link>https://www.jiwenzi.com/tags/%E6%80%BB%E7%BB%93/</link>
+    <description>Recent content in 总结 on Jiwenzi</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 01 Jan 2024 22:21:21 +0800</lastBuildDate>
+    <atom:link href="https://www.jiwenzi.com/tags/%E6%80%BB%E7%BB%93/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Let all stories stay in 2023</title>
+      <link>https://www.jiwenzi.com/2024/01/01/summary-of-2023/</link>
+      <pubDate>Mon, 01 Jan 2024 22:21:21 +0800</pubDate>
+      <guid>https://www.jiwenzi.com/2024/01/01/summary-of-2023/</guid>
+      <description>Render to Caesar the things that are Caesar&amp;rsquo;s, and to God the things that are God&amp;rsquo;s&amp;hellip;</description>
+    </item>
+    <item>
+      <title>One上线11周年了</title>
+      <link>https://www.jiwenzi.com/2023/10/26/11-years-of-one/</link>
+      <pubDate>Thu, 26 Oct 2023 01:31:21 +0800</pubDate>
+      <guid>https://www.jiwenzi.com/2023/10/26/11-years-of-one/</guid>
+      <description>复杂世界里, 一个就够了&amp;hellip;</description>
+    </item>
+    <item>
+      <title>过去这几年</title>
+      <link>https://www.jiwenzi.com/2021/01/01/summary-of-2020/</link>
+      <pubDate>Fri, 01 Jan 2021 01:02:03 +0800</pubDate>
+      <guid>https://www.jiwenzi.com/2021/01/01/summary-of-2020/</guid>
+      <description>时间一晃眼，已经过去了几年&amp;hellip;</description>
+    </item>
+  </channel>
+</rss>

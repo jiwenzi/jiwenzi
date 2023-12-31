@@ -1,0 +1,2 @@
+User-agent: *
+Sitemap: https://www.jiwenzi.com/sitemap.xml

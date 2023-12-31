@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>macOS on Jiwenzi</title>
+    <link>https://www.jiwenzi.com/tags/macos/</link>
+    <description>Recent content in macOS on Jiwenzi</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 17 Mar 2022 22:23:36 +0800</lastBuildDate>
+    <atom:link href="https://www.jiwenzi.com/tags/macos/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Init desktop system</title>
+      <link>https://www.jiwenzi.com/2022/03/17/init-desktop-system/</link>
+      <pubDate>Thu, 17 Mar 2022 22:23:36 +0800</pubDate>
+      <guid>https://www.jiwenzi.com/2022/03/17/init-desktop-system/</guid>
+      <description>Init desktop system: Windows, macOS, Linux&amp;hellip;</description>
+    </item>
+    <item>
+      <title>install zsh and oh-my-zsh</title>
+      <link>https://www.jiwenzi.com/2019/03/27/install-zsh-and-oh-my-zsh/</link>
+      <pubDate>Wed, 27 Mar 2019 20:40:30 +0800</pubDate>
+      <guid>https://www.jiwenzi.com/2019/03/27/install-zsh-and-oh-my-zsh/</guid>
+      <description>Install zsh and oh-my-zsh&amp;hellip;</description>
+    </item>
+    <item>
+      <title>Vim config</title>
+      <link>https://www.jiwenzi.com/2019/01/16/vim-config/</link>
+      <pubDate>Wed, 16 Jan 2019 22:19:27 +0800</pubDate>
+      <guid>https://www.jiwenzi.com/2019/01/16/vim-config/</guid>
+      <description>Vim config&amp;hellip;</description>
+    </item>
+    <item>
+      <title>Add swap space for Linux</title>
+      <link>https://www.jiwenzi.com/2019/01/13/add-swap-space-for-linux/</link>
+      <pubDate>Sun, 13 Jan 2019 21:04:51 +0800</pubDate>
+      <guid>https://www.jiwenzi.com/2019/01/13/add-swap-space-for-linux/</guid>
+      <description>Add swap space for Linux&amp;hellip;</description>
+    </item>
+    <item>
+      <title>Change Linux Hostname</title>
+      <link>https://www.jiwenzi.com/2019/01/13/change-linux-hostname/</link>
+      <pubDate>Sun, 13 Jan 2019 19:47:29 +0800</pubDate>
+      <guid>https://www.jiwenzi.com/2019/01/13/change-linux-hostname/</guid>
+      <description>Change Linux Hostname&amp;hellip;</description>
+    </item>
+  </channel>
+</rss>

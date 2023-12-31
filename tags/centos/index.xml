@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>CentOS on Jiwenzi</title>
+    <link>https://www.jiwenzi.com/tags/centos/</link>
+    <description>Recent content in CentOS on Jiwenzi</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 12 Jan 2019 17:55:02 +0800</lastBuildDate>
+    <atom:link href="https://www.jiwenzi.com/tags/centos/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>从CentOS迁移到Ubuntu了</title>
+      <link>https://www.jiwenzi.com/2019/01/12/migrating-from-centos-to-ubuntu/</link>
+      <pubDate>Sat, 12 Jan 2019 17:55:02 +0800</pubDate>
+      <guid>https://www.jiwenzi.com/2019/01/12/migrating-from-centos-to-ubuntu/</guid>
+      <description>最近重新维护一台Linux服务器，发现内核太低，很多东西都无法使用。最开始维护时遵循原有习惯使用了CentOS系统，但是随着时间的发展，Ubuntu的可用性也在不断提高，并且随着Docker的稳定性越来越高，似乎底层系统已关联不大，所以做了迁移系统的决定&amp;hellip;</description>
+    </item>
+  </channel>
+</rss>
