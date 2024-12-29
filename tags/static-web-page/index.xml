@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Static Web Page on Jiwenzi</title>
+    <link>http://localhost:1313/tags/static-web-page/</link>
+    <description>Recent content in Static Web Page on Jiwenzi</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 07 Oct 2022 21:53:29 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/static-web-page/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>generate static web page of document</title>
+      <link>http://localhost:1313/draft/generate-static-web-page-of-document/</link>
+      <pubDate>Fri, 07 Oct 2022 21:53:29 +0000</pubDate>
+      <guid>http://localhost:1313/draft/generate-static-web-page-of-document/</guid>
+      <description>&lt;p&gt;如果你想为文档类内容构建一个可访问的静态网站，可参考如下工具。&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://www.gitbook.com&#34;&gt;GitBook&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://github.com/facebook/docusaurus&#34;&gt;Docusaurus&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://astro.build&#34;&gt;Astro&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://github.com/answerdev/answer&#34;&gt;Answer&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://github.com/squidfunk/mkdocs-material&#34;&gt;MkDocs&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://github.com/squidfunk/mkdocs-material&#34;&gt;Material for MkDocs&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://github.com/silverbulletmd/silverbullet&#34;&gt;Silver Bullet&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://github.com/charmbracelet/glow&#34;&gt;Glow&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+    </item>
+  </channel>
+</rss>

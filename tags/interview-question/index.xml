@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Interview Question on Jiwenzi</title>
+    <link>http://localhost:1313/tags/interview-question/</link>
+    <description>Recent content in Interview Question on Jiwenzi</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 25 Jan 2019 15:51:16 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/interview-question/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>interview question bank</title>
+      <link>http://localhost:1313/draft/interview-question-bank/</link>
+      <pubDate>Fri, 25 Jan 2019 15:51:16 +0000</pubDate>
+      <guid>http://localhost:1313/draft/interview-question-bank/</guid>
+      <description>&lt;ol&gt;&#xA;&lt;li&gt;What would you do when you meet a issue.&#xA;&lt;ol&gt;&#xA;&lt;li&gt;view the official document&lt;/li&gt;&#xA;&lt;li&gt;view the official issue list&lt;/li&gt;&#xA;&lt;li&gt;search the issue with keywords&lt;/li&gt;&#xA;&lt;li&gt;waiting for someone answer your question&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ol&gt;</description>
+    </item>
+  </channel>
+</rss>

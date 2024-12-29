@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tmux on Jiwenzi</title>
+    <link>http://localhost:1313/tags/tmux/</link>
+    <description>Recent content in Tmux on Jiwenzi</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 13 Jan 2019 20:40:10 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/tmux/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>tmux config</title>
+      <link>http://localhost:1313/draft/tmux-config/</link>
+      <pubDate>Sun, 13 Jan 2019 20:40:10 +0000</pubDate>
+      <guid>http://localhost:1313/draft/tmux-config/</guid>
+      <description>&lt;p&gt;Reference document:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://github.com/tmux/tmux&#34;&gt;https://github.com/tmux/tmux&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://wdxtub.com/2016/03/30/tmux-guide&#34;&gt;https://wdxtub.com/2016/03/30/tmux-guide&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://wiki.tankywoo.com/tool/tmux.html&#34;&gt;https://wiki.tankywoo.com/tool/tmux.html&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;http://louiszhai.github.io/2017/09/30/tmux&#34;&gt;http://louiszhai.github.io/2017/09/30/tmux&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+    </item>
+  </channel>
+</rss>
