@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr" data-theme="light">
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Start HTTPS with Let&#39;s Encrypt">
+<meta name="author" content="LinFeng">
+<meta name="theme-color" content="#f4e4c1">
+<link rel="canonical" href="https://www.jiwenzi.com/zh-cn/2019/01/16/start-https-with-lets-encrypt/">
+<meta property="og:title" content="Start HTTPS with Let&#39;s Encrypt">
+<meta property="og:description" content="Start HTTPS with Let&#39;s Encrypt">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://www.jiwenzi.com/zh-cn/2019/01/16/start-https-with-lets-encrypt/">
+<meta property="og:site_name" content="Jiwenzi">
+<meta property="og:locale" content="zh-CN">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Start HTTPS with Let&#39;s Encrypt">
+<meta name="twitter:description" content="Start HTTPS with Let&#39;s Encrypt">
+
+<title>Start HTTPS with Let&#39;s Encrypt | Jiwenzi</title>
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="stylesheet" href="/css/main.min.1dfba0201f096836c424ee657d8733d91d863aad54932e4ec17c10fd4c8cbd8d.css" integrity="sha256-HfugIB8JaDbEJO5lfYcz2R2GOq1Uky5OwXwQ/UyMvY0=" crossorigin="anonymous">
+
+<script>
+  (function() {
+    const theme = localStorage.getItem('theme') || 
+      (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    document.documentElement.setAttribute('data-theme', theme);
+  })();
+</script>
+
+
+</head>
+<body>
+  <div class="site-wrapper">
+    <header class="site-header">
+      <div class="header-container">
+  <div class="header-brand">
+    <a href="/zh-cn/" class="site-logo">
+      <span class="logo-text">Jiwenzi</span>
+    </a>
+  </div>
+  
+  <div class="header-right">
+    <nav class="header-nav">
+      
+  <ul class="nav-menu">
+      <li class="nav-item">
+        <a class="nav-link" href="/zh-cn/">首页</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link active" href="/zh-cn/posts/" aria-current="page">文章</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/zh-cn/authors/">作者</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/zh-cn/tags/">标签</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/zh-cn/about/">关于</a>
+      </li>
+  </ul>
+
+    </nav>
+    
+    <div class="header-actions">
+    <div class="language-switcher" data-current="zh-cn">
+      <button type="button" class="lang-toggle" aria-expanded="false" aria-haspopup="listbox">
+        <svg class="lang-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"></circle>
+          <line x1="2" y1="12" x2="22" y2="12"></line>
+          <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+        </svg>
+        <span class="lang-label">简体中文</span>
+      </button>
+      <ul class="lang-menu" role="listbox" aria-label="Select language">
+        <li role="option" >
+          <a href="/en-us/2019/01/16/start-https-with-lets-encrypt/" hreflang="en-us" onclick="try{localStorage.setItem('preferred-lang','en-us')}catch(e){}">English (US)</a>
+        </li>
+        <li role="option" aria-selected="true">
+          <a href="/zh-cn/2019/01/16/start-https-with-lets-encrypt/" hreflang="zh-cn" onclick="try{localStorage.setItem('preferred-lang','zh-cn')}catch(e){}">简体中文</a>
+        </li>
+        <li role="option" >
+          <a href="/zh-tw/2019/01/16/start-https-with-lets-encrypt/" hreflang="zh-tw" onclick="try{localStorage.setItem('preferred-lang','zh-tw')}catch(e){}">繁體中文</a>
+        </li>
+      </ul>
+    </div>
+    <button class="theme-toggle" aria-label="深色模式" title="深色模式">
+      <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="5"></circle>
+        <line x1="12" y1="1" x2="12" y2="3"></line>
+        <line x1="12" y1="21" x2="12" y2="23"></line>
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+        <line x1="1" y1="12" x2="3" y2="12"></line>
+        <line x1="21" y1="12" x2="23" y2="12"></line>
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+      </svg>
+      <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+      </svg>
+    </button>
+    <button class="mobile-menu-toggle" aria-label="Toggle Menu">
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+    </button>
+  </div>
+  </div>
+</div>
+
+    </header>
+    <div class="header-image" style="background-image: url('/images/jiwenzi.png');">
+      <div class="header-image-overlay"></div>
+    </div>
+    
+    <main class="site-main">
+      <div class="container">
+        <div class="main-content">
+          
+
+
+<article class="single-post">
+  <header class="post-header">
+    <h1 class="post-title">Start HTTPS with Let&#39;s Encrypt</h1>
+
+    <div class="post-meta">
+      <div class="meta-left">
+        <span class="meta-author">
+          作者
+      <a href="/zh-cn/authors/linfeng/">LinFeng</a>
+
+        </span>
+        <span class="meta-date">
+          发布于
+          <time datetime="2019-01-16T21:26:59&#43;08:00">
+            2019-01-16 21:26:59
+          </time>
+        </span>
+        <span class="meta-wordcount">135 字</span>
+        <span class="meta-reading-time">1 分钟阅读</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="post-content">
+    <p>Reference document:</p>
+<ul>
+<li><a href="https://certbot.eff.org/docs/intro.html">https://certbot.eff.org/docs/intro.html</a></li>
+<li><a href="https://certbot.eff.org/docs/using.html">https://certbot.eff.org/docs/using.html</a></li>
+</ul>
+<p>You can configure it step by step.</p>
+<ol>
+<li>
+<p>install certbot</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">apt-get update
+</span></span><span class="line"><span class="cl">apt-get install software-properties-common
+</span></span><span class="line"><span class="cl">add-apt-repository universe
+</span></span><span class="line"><span class="cl">add-apt-repository ppa:certbot/certbot
+</span></span><span class="line"><span class="cl">apt-get update
+</span></span><span class="line"><span class="cl">apt-get install certbot
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>generate SSL/TLS certificate file</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">certbot certonly --webroot -w /var/www/html -d example.com --email your_email@example.com
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>then you can find the file in <code>/etc/letsencrypt/live/example.com/</code></p>
+</li>
+<li>
+<p>modify nginx config</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># Session
+</span></span><span class="line"><span class="cl">ssl_session_cache shared:SSL:32m;
+</span></span><span class="line"><span class="cl">ssl_session_timeout 1d;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"># HSTS
+</span></span><span class="line"><span class="cl">add_header Strict-Transport-Security &#34;max-age=31536000; includeSubDomains&#34; always;  
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"># Forward Secrecy 
+</span></span><span class="line"><span class="cl">ssl_protocols TLSv1.3 TLSv1.2 TLSv1.1 TLSv1;
+</span></span><span class="line"><span class="cl">ssl_prefer_server_ciphers on;
+</span></span><span class="line"><span class="cl">ssl_ciphers ECDH+AESGCM:ECDH+AES256:ECDH+AES128:DHE+AES128:!ADH:!AECDH:!MD5;
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>then modify host config file and reload nginx</p>
+</li>
+<li>
+<p>now you can visit your website with https</p>
+</li>
+<li>
+<p>when ths certificate file is expired, you can execute <code>certbot renew</code> for update</p>
+</li>
+<li>
+<p>in addition, you can visit <a href="https://www.ssllabs.com/ssltest/">https://www.ssllabs.com/ssltest/</a> to test your website SSL/TLS config</p>
+</li>
+</ol>
+
+  </div>
+
+  <footer class="post-footer">
+    <div class="post-tags">
+      <span class="tags-label">标签:</span>
+      <a href="/zh-cn/tags/https/" class="tag">HTTPS</a>
+      <a href="/zh-cn/tags/lets-encrypt/" class="tag">Let&#39;s Encrypt</a>
+      <a href="/zh-cn/tags/ssl/tls/" class="tag">SSL/TLS</a>
+    </div>
+
+    <nav class="post-navigation">
+      <a href="/zh-cn/2019/01/13/add-swap-space-for-linux/" class="nav-prev">
+        <span class="nav-label">上一篇</span>
+        <span class="nav-title">Add swap space for Linux</span>
+      </a>
+      <a href="/zh-cn/2019/01/16/vim-config/" class="nav-next">
+        <span class="nav-label">下一篇</span>
+        <span class="nav-title">Vim config</span>
+      </a>
+    </nav>
+  </footer>
+</article>
+
+
+        </div>
+      </div>
+    </main>
+    
+    <footer class="site-footer">
+      <div class="footer-container">
+  <p class="footer-text">
+    <span class="copyright">&copy; <span id="copyright-year"></span> Jiwenzi. 版权所有.</span>
+  </p>
+</div>
+<script>document.getElementById('copyright-year').textContent = new Date().getFullYear();</script>
+
+    </footer>
+    
+    <button class="back-to-top" aria-label="返回顶部" title="返回顶部">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="18 15 12 9 6 15"></polyline>
+      </svg>
+    </button>
+  </div>
+
+<script src="/js/main.min.31221c509d2bf0a149ed5b7d4607b0f717869e042661eea52d66259a99565009.js" defer></script>
+
+</body>
+</html>

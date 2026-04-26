@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>https://www.jiwenzi.com/en-us/</title>
+  <link rel="canonical" href="https://www.jiwenzi.com/en-us/">
+  <script>
+    
+    (function() {
+      
+      if (window.location.pathname === '/' || window.location.pathname === '/index.html') {
+        var target = null;
+        
+        
+        try {
+          target = localStorage.getItem('preferred-lang');
+        } catch (e) {
+          
+        }
+        
+        
+        if (!target) {
+          var lang = navigator.language || navigator.userLanguage;
+          target = 'en-us'; 
+          
+          if (lang.startsWith('zh-TW') || lang.startsWith('zh-HK')) {
+            target = 'zh-tw';
+          } else if (lang.startsWith('zh')) {
+            target = 'zh-cn';
+          } else if (lang.startsWith('en')) {
+            target = 'en-us';
+          }
+        }
+        
+        window.location.replace('/' + target + '/');
+        return;
+      }
+      
+      window.location.replace('https:\/\/www.jiwenzi.com\/en-us\/');
+    })();
+  </script>
+  <noscript>
+    <meta http-equiv="refresh" content="0; url=https://www.jiwenzi.com/en-us/">
+  </noscript>
+</head>
+<body>
+  <noscript>
+    <p>Redirecting to <a href="https://www.jiwenzi.com/en-us/">https://www.jiwenzi.com/en-us/</a>...</p>
+  </noscript>
+</body>
+</html>
